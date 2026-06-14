@@ -31,3 +31,23 @@ sim_0_2 = cosine_similarity(embeddings[0],embeddings[2])
 
 print("Password vs Recover Access:", sim_0_1)
 print("Password vs Pizza:", sim_0_2)
+
+
+new_sentences = [
+    "I love this movie",           # positive sentiment
+    "I hate this movie",           # negative sentiment — same topic, opposite meaning
+    "The film was disappointing",  # negative sentiment, different words
+]
+
+new_embeddings = model.encode(new_sentences)
+
+print("\nSentiment similarity tests:")
+print("Love vs Hate (same topic, opposite):", 
+      cosine_similarity(new_embeddings[0], new_embeddings[1]))
+print("Hate vs Disappointing (same meaning, diff words):", 
+      cosine_similarity(new_embeddings[1], new_embeddings[2]))
+print("Love vs Disappointing (opposite meaning):", 
+      cosine_similarity(new_embeddings[0], new_embeddings[2]))
+
+print("\nFirst 10 dimensions of 'I love this movie' embedding:")
+print(new_embeddings[0][:10])
