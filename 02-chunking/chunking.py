@@ -12,7 +12,7 @@ def chunk_text(text,chunk_size, overlap):
     while start<len(words):
         end=start+chunk_size  #end index for this chunk
 
-        chunk=" ".join(words[start:end]) #extract the words for this chunk and join back into a string
+        chunk=" ".join(words[start:end]) #extract the words for this chunk and join back into a string since .encode() (the embedding function) expects plain text strings as input, not token lists.
         chunks.append(chunk)
 
         start= start+chunk_size-overlap #move start forward, accounting for overlap
