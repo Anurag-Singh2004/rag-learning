@@ -4,3 +4,4 @@ __pycache__/
 .env
 chroma_storage/
 chroma_storage_v2/
+05-chat-with-pdf/backend/chroma_storage/
