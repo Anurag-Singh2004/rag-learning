@@ -5,3 +5,4 @@ __pycache__/
 chroma_storage/
 chroma_storage_v2/
 05-chat-with-pdf/backend/chroma_storage/
+05-chat-with-pdf/backend/inspection.py
