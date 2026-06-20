@@ -2,7 +2,7 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import os
-from rag_pipeline import ingest_pdf, generate_answer
+from rag_pipeline import ingest_pdf, generate_answer, list_documents
 
 
 app = FastAPI()
@@ -29,3 +29,7 @@ async def upload_pdf(file: UploadFile = File(...)):
 async def chat(request: ChatRequest):
     answer, num_chunks_used, sources = generate_answer(request.question, request.provider)
     return {"answer": answer, "chunks_used": num_chunks_used, "sources": sources}
+
+@app.get("/documents")
+async def get_documents():
+    return {"documents": list_documents()}

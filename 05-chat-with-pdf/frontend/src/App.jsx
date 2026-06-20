@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FileUpload from "./components/FileUpload";
 import ChatWindow from "./components/ChatWindow";
 
 function App(){
     const [uploadedFiles, setUplodadedFiles] = useState([]);
+
+    useEffect(() => {
+      fetch("/api/documents")
+        .then((res) => res.json())
+        .then((data) => setUplodadedFiles(data.documents));
+    }, []);
 
     function handleUploadComplete(file){
         setUplodadedFiles((prev)=>[...prev, file]);

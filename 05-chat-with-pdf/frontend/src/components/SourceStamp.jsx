@@ -49,7 +49,13 @@ export default function SourceStamp({ chunksUsed, sources }) {
                 color: "var(--ink-soft)",
               }}
             >
-              {s}
+              <div
+                className="mb-1"
+                style={{ fontWeight: 600, color: "var(--ink)" }}
+              >
+                {s.source}
+              </div>
+              <div>{s.text}</div>
             </div>
           ))}
         </div>
