@@ -27,5 +27,5 @@ async def upload_pdf(file: UploadFile = File(...)):
 
 @app.post("/chat")
 async def chat(request: ChatRequest):
-    answer, num_chunks_used = generate_answer(request.question, request.provider)
-    return {"answer": answer, "chunks_used": num_chunks_used}
+    answer, num_chunks_used, sources = generate_answer(request.question, request.provider)
+    return {"answer": answer, "chunks_used": num_chunks_used, "sources": sources}

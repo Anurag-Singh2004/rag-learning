@@ -121,4 +121,4 @@ def generate_answer(question, provider="groq"):
     else:
         raise ValueError("Unknown provider")
     
-    return answer, len(chunks)
+    return answer, len(chunks), chunks
